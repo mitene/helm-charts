@@ -34,11 +34,20 @@ applications:
             repoURL: https://github.com/org/repo
             targetRevision: HEAD
             path: app-a
+          destination:
+            server: https://kubernetes.default.svc
+            namespace: argocd
         - name: child-b
           source:
             repoURL: https://github.com/org/repo
             targetRevision: HEAD
             path: app-b
+          destination:
+            server: https://kubernetes.default.svc
+            namespace: argocd
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
 ```
 
 ## Chart Values
