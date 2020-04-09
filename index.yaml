@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  argo-cd-apps:
+  - apiVersion: v1
+    appVersion: 1.5.1
+    created: "2020-04-09T09:41:07.641644177Z"
+    description: A Helm chart for ArgoCD Applications
+    digest: 8335e5ab956d5a3533a75ebf49f1e89611892b1d09aea887a6a9bc86c12591b8
+    home: https://github.com/mitene/helm-charts/tree/master/charts/argo-cd-apps
+    name: argo-cd-apps
+    urls:
+    - https://github.com/mitene/helm-charts/releases/download/argo-cd-apps-0.1.0-alpha1/argo-cd-apps-0.1.0-alpha1.tgz
+    version: 0.1.0-alpha1
+generated: "2020-04-09T09:41:07.535140556Z"
