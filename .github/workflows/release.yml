@@ -3,7 +3,7 @@ name: Release Charts
 on:
   push:
     branches:
-    - argo-cd-apps
+    - master
 
 jobs:
   release:

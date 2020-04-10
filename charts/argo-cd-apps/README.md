@@ -9,7 +9,7 @@ Source code can be found [here](https://github.com/mitene/helm-charts/tree/maste
 To install the chart with the release name `my-release`:
 
 ```console
-$ helm repo add mitene https://github.com/mitene/helm-charts
+$ helm repo add mitene https://mitene.github.io/helm-charts
 $ helm install --name my-release mitene/argo-cd-apps
 ```
 
@@ -23,7 +23,7 @@ This chart is especially useful when you define nested ArgoCD applications.
 applications:
 - name: parent
   source:
-    repoURL: https://github.com/mitene/helm-charts
+    repoURL: https://mitene.github.io/helm-charts
     chart: argo-cd-apps
     targetRevision: "0.1.0"  
     helm:
