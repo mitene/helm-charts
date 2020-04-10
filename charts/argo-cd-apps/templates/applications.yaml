@@ -1,0 +1,40 @@
+{{- if .Values.applications }}
+apiVersion: v1
+kind: List
+items:
+{{- range .Values.applications }}
+  - apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    metadata:
+      {{- if .annotations }}
+      annotations:
+      {{- range $key, $value := .annotations }}
+        {{ $key }}: {{ $value | quote }}
+      {{- end }}
+      {{- end }}
+      labels:
+{{- include "argo-cd-apps.labels" $ | nindent 8 }}
+      {{- if .labels }}
+{{- toYaml .labels | nindent 8}}
+      {{- end }}
+      name: {{ .name }}
+      {{- if .finalizers }}
+      finalizers:
+{{- toYaml .finalizers | nindent 8 }}
+      {{- end }}
+    spec:
+      project: {{ default .project "default" }}
+      source:
+{{- toYaml .source | nindent 8 }}
+      destination:
+{{- toYaml .destination | nindent 8 }}
+      {{- if .syncPolicy }}
+      syncPolicy:
+{{- toYaml .syncPolicy | nindent 8 }}
+      {{- end }}
+      {{- if .ignoreDifferences }}
+      ignoreDifferences:
+{{- toYaml .ignoreDifferences | nindent 8 }}
+      {{- end }}
+{{- end }}
+{{- end }}
