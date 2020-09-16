@@ -5,8 +5,6 @@
 regionName:
 clusterName:
 
-replicaCount: 1
-
 image:
   repository: amazon/cloudwatch-agent
   tag: 1.245315.0
