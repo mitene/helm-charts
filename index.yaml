@@ -21,4 +21,14 @@ entries:
     urls:
     - https://github.com/mitene/helm-charts/releases/download/argo-cd-apps-0.1.0-alpha1/argo-cd-apps-0.1.0-alpha1.tgz
     version: 0.1.0-alpha1
+  cloudwatch-agent:
+  - apiVersion: v2
+    appVersion: 1.245315.0
+    created: "2020-09-16T05:56:27.357376295Z"
+    description: A Helm chart for Kubernetes
+    digest: 61e88a595540d7c5ea7c6f082c20d38a3618d394adcb7ffdbfe9615939ea4c37
+    name: cloudwatch-agent
+    urls:
+    - https://github.com/mitene/helm-charts/releases/download/cloudwatch-agent-0.1.0/cloudwatch-agent-0.1.0.tgz
+    version: 0.1.0
 generated: "2020-04-09T09:41:07.535140556Z"
