@@ -24,6 +24,15 @@ entries:
   cloudwatch-agent:
   - apiVersion: v2
     appVersion: 1.245315.0
+    created: "2020-10-08T08:28:42.273416009Z"
+    description: A Helm chart for Kubernetes
+    digest: 81708690b620f3b7345f322e2e175dbe9cc4019d1d2481153693136829744aff
+    name: cloudwatch-agent
+    urls:
+    - https://github.com/mitene/helm-charts/releases/download/cloudwatch-agent-0.1.1/cloudwatch-agent-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.245315.0
     created: "2020-09-16T05:56:27.357376295Z"
     description: A Helm chart for Kubernetes
     digest: 61e88a595540d7c5ea7c6f082c20d38a3618d394adcb7ffdbfe9615939ea4c37
