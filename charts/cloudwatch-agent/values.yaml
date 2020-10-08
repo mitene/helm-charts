@@ -24,3 +24,6 @@ podSecurityContext: {}
   # fsGroup: 2000
 
 priorityClassName:
+
+tolerations:
+- operator: "Exists"
