@@ -10,6 +10,9 @@ config:
   # If ommitted, default configuration is used, described in https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContainerInsights-Prometheus-Setup.html
   prometheus: {}
 
+  # AWS Region to which an agent send data
+  region: ""
+
 replicaCount: 1
 
 image:

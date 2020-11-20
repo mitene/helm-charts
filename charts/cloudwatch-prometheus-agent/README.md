@@ -15,3 +15,4 @@ $ helm install --name my-release mitene/cloudwatch-prometheus-agent
 |-----|------|---------|
 | config.cwagent    | Contents of cwagentconfig.json | |
 | config.prometheus | Contents of prometheus.yaml | |
+| config.region     | AWS Region to which an agent send data | |

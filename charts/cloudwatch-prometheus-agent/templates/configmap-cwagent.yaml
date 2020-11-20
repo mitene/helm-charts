@@ -9,6 +9,11 @@ data:
     {{- toPrettyJson . | nindent 4 }}
     {{- else }}
     {
+      {{- with .Values.config.region }}
+      "agent": {
+        "region": "{{ . }}"
+      },
+      {{- end }}
       "logs": {
         "metrics_collected": {
           "prometheus": {
