@@ -6,7 +6,7 @@ metadata:
 data:
   prometheus.yaml: |
     {{- with .Values.config.prometheus }}
-    {{- toYAML . | nindent 4 }}
+    {{- toYaml . | nindent 4 }}
     {{- else }}
     global:
       scrape_interval: 1m
