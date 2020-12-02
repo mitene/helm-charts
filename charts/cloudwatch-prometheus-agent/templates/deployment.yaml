@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "cloudwatch-prometheus-agent.fullname" . }}
+  labels:
+    {{- include "cloudwatch-prometheus-agent.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "cloudwatch-prometheus-agent.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+    {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      labels:
+        {{- include "cloudwatch-prometheus-agent.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "cloudwatch-prometheus-agent.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          # Please don't change below envs
+          env:
+            - name: CI_VERSION
+              value: "k8s/1.2.3"
+          # Please don't change the mountPath
+          volumeMounts:
+            - name: prometheus-cwagentconfig
+              mountPath: /etc/cwagentconfig
+            - name: prometheus-config
+              mountPath: /etc/prometheusconfig
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+
+      volumes:
+        - name: prometheus-cwagentconfig
+          configMap:
+            name: {{ include "cloudwatch-prometheus-agent.fullname" . }}-cwagent
+        - name: prometheus-config
+          configMap:
+            name: {{ include "cloudwatch-prometheus-agent.fullname" . }}-prometheus
+      terminationGracePeriodSeconds: 60
