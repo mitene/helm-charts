@@ -40,4 +40,15 @@ entries:
     urls:
     - https://github.com/mitene/helm-charts/releases/download/cloudwatch-agent-0.1.0/cloudwatch-agent-0.1.0.tgz
     version: 0.1.0
+  cloudwatch-prometheus-agent:
+  - apiVersion: v2
+    appVersion: 1.247346.0b249609
+    created: "2020-12-02T08:10:01.473493662Z"
+    description: A Helm chart for Kubernetes
+    digest: ad4477bc6b68c6e4034a9d31a60daccabeeea44a569406e9038c45eef730c659
+    name: cloudwatch-prometheus-agent
+    type: application
+    urls:
+    - https://github.com/mitene/helm-charts/releases/download/cloudwatch-prometheus-agent-0.1.0/cloudwatch-prometheus-agent-0.1.0.tgz
+    version: 0.1.0
 generated: "2020-04-09T09:41:07.535140556Z"
